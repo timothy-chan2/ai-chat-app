@@ -1,19 +1,15 @@
-import { Chat } from 'ragged';
+import { ClientComponent } from './components/clientComponent';
+import { MessageList } from './components/messageList';
+import { InstructionCreateForm } from './components/instructionCreateForm';
 
-import Conversation from './ui/conversation';
-
-export default async function Home() {
-  const chatInstance = Chat.with({
-    provider: 'cohere',
-    config: { apiKey: process.env.COHERE_API_KEY, model: 'command-light' }
-  });
-
-  const { history } = await chatInstance.chat('What is a rickroll?');
-  const chatReply = history.at(-1)?.text;
+export default function Home() {
+  // https://www.robinwieruch.de/next-forms/
   
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Conversation chatData={chatReply} />
+    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+      <ClientComponent />
+      <MessageList />
+      <InstructionCreateForm />
     </main>
   );
 }
