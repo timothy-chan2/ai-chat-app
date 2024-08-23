@@ -1,3 +1,5 @@
+'use server';
+
 import { Chat } from 'ragged';
 import { revalidatePath } from 'next/cache';
 
@@ -14,13 +16,13 @@ const chatInstance = Chat.with({
   config: { apiKey: process.env.COHERE_API_KEY, model: 'command-light' }
 });
 
-export const getMessages = (): Message[] => {
-  return messages;
+export const getMessages = async (): Promise<Message[]> => {
+  await new Promise(resolve => setTimeout(resolve, 200));
+  
+  return Promise.resolve(messages);
 }
 
 export const getAnswer = async (formData: FormData) => {
-  'use server';
-
   const instruction = formData.get('instruction') as string;
 
   messages.push({

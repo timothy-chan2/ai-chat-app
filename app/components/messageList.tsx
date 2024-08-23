@@ -1,7 +1,7 @@
 import { getMessages } from '../actions';
 
-const MessageList = () => {
-  const messages = getMessages();
+const MessageList = async () => {
+  const messages = await getMessages();
 
   return (
     <ul>
