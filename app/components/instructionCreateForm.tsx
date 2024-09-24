@@ -7,7 +7,7 @@ const InstructionCreateForm = () => {
   return (
     <form action={getAnswer} className='flex flex-col items-center'>
       <label htmlFor='instruction'>Instruction</label>
-      <textarea id='instruction' name='instruction' className='bg-white/20 mt-1 mb-5' />
+      <textarea id='instruction' name='instruction' className='bg-white/20 mt-1 mb-5 resize-none' />
       <SubmitButton label='Send' loading='Searching...' />
     </form>
   );
