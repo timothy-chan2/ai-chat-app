@@ -6,7 +6,7 @@ const MessageList = async () => {
 
   return (
     numberOfMessages > 0 &&
-    <ul>
+    <ul className='w-full lg:w-1/3'>
       {messages.map(message => (
         <li key={message.id}>
           <p>{ message.creator }</p>
