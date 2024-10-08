@@ -1,4 +1,5 @@
 import { getMessages } from '../actions';
+import { DeleteButtonContainer } from './deleteButtonContainer';
 
 const MessageList = async () => {
   const messages = await getMessages();
@@ -11,6 +12,7 @@ const MessageList = async () => {
         <li key={message.id} className='mb-3'>
           <p className='font-bold'>{ message.creator }</p>
           <p>{ message.text }</p>
+          <DeleteButtonContainer id={message.id} />
         </li>
       ))}
     </ul>
