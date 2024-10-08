@@ -42,3 +42,10 @@ export const getAnswer = async (formData: FormData) => {
 
   revalidatePath('/');
 };
+
+export const deleteMessage = (messageId: string) => {
+  const messageIndex = messages.findIndex(message => message.id === messageId);
+  messages.splice(messageIndex, 1);
+
+  revalidatePath('/');
+};
