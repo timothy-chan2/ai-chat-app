@@ -31,8 +31,14 @@ export const getAnswer = async (formData: FormData) => {
     text: instruction
   });
 
-  const { history } = await chatInstance.chat(instruction);
-  const chatReply = history.at(-1)?.text;
+  let chatReply;
+
+  try {
+    const { history } = await chatInstance.chat(instruction);
+    chatReply = history.at(-1)?.text;
+  } catch (e) {
+    chatReply = `Error: ${e}`;
+  }
 
   messages.push({
     id: crypto.randomUUID(),
