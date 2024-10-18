@@ -4,18 +4,15 @@ import { DeleteButtonContainer } from './deleteButtonContainer';
 const MessageList = async () => {
   const messages = await getMessages();
   const numberOfMessages = messages.length;
-  const messageList = messages.map(message => {
-    let style;
-    
-    switch (message.creator) {
-      case 'AI':
-        style = 'mb-3';
-        break;
-      case 'User':
-        style = 'mb-3 flex justify-end';
-        break;
-    }
-    
+  
+  const messageListItems = messages.map(message => {
+    const messageStyle: { [key: string]: string; } = {
+      'AI': 'mb-3',
+      'User': 'mb-3 flex justify-end'
+    };
+
+    const style = messageStyle[message.creator];
+
     return (
       <li key={message.id} className={style}>
         <div>
@@ -24,13 +21,13 @@ const MessageList = async () => {
           <DeleteButtonContainer id={message.id} />
         </div>
       </li>
-    )
+    );
   });
 
   return (
     numberOfMessages > 0 &&
     <ul className='w-full lg:w-1/3 mb-8'>
-      {messageList}
+      {messageListItems}
     </ul>
   );
 };
