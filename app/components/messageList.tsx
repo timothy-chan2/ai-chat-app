@@ -4,13 +4,13 @@ import { DeleteButtonContainer } from './deleteButtonContainer';
 const MessageList = async () => {
   const messages = await getMessages();
   const numberOfMessages = messages.length;
+
+  const messageStyle: { [key: string]: string; } = {
+    'AI': 'mb-3',
+    'User': 'mb-3 flex justify-end'
+  };
   
   const messageListItems = messages.map(message => {
-    const messageStyle: { [key: string]: string; } = {
-      'AI': 'mb-3',
-      'User': 'mb-3 flex justify-end'
-    };
-
     const style = messageStyle[message.creator];
 
     return (
