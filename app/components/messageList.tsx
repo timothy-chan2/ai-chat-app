@@ -9,13 +9,19 @@ const MessageList = async () => {
     'AI': 'mb-3',
     'User': 'mb-3 flex justify-end'
   };
+
+  const messageDivStyle: { [key: string]: string; } = {
+    'AI': '',
+    'User': 'bg-white/20 px-4 py-2 rounded-lg'
+  };
   
   const messageListItems = messages.map(message => {
     const style = messageStyle[message.creator];
+    const divStyle = messageDivStyle[message.creator];
 
     return (
       <li key={message.id} className={style}>
-        <div>
+        <div className={divStyle}>
           <p className='font-bold'>{ message.creator }</p>
           <p>{ message.text }</p>
           <DeleteButtonContainer id={message.id} />
