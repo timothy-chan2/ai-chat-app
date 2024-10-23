@@ -32,7 +32,7 @@ const MessageList = async () => {
 
   return (
     numberOfMessages > 0 &&
-    <ul className='w-full lg:w-1/3 mb-8'>
+    <ul className='w-full md:w-3/4 lg:w-1/3 mb-8'>
       {messageListItems}
     </ul>
   );
