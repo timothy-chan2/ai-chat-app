@@ -23,7 +23,11 @@ const InstructionCreateForm = () => {
       className='flex flex-col items-center w-full md:w-3/4 lg:w-1/3'
     >
       <label htmlFor='instruction'>Instruction</label>
-      <textarea id='instruction' name='instruction' className='bg-white/20 mt-1 mb-5 resize-none w-full h-20 px-2 py-1 rounded' />
+      <textarea
+        id='instruction'
+        name='instruction'
+        className='bg-white/20 mt-1 mb-5 resize-none w-full h-20 px-2 py-1 rounded'
+      />
       <SubmitButton label='Send' loading='Searching...' />
     </form>
   );
