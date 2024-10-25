@@ -28,7 +28,11 @@ const InstructionCreateForm = () => {
         name='instruction'
         className='bg-white/20 mt-1 mb-5 resize-none w-full h-20 px-2 py-1 rounded'
       />
-      <SubmitButton label='Send' loading='Searching...' />
+      <SubmitButton
+        label='Send'
+        loading='Searching...'
+        styleClasses='bg-blue-500 hover:bg-blue-700 font-semibold py-2 px-4 w-full rounded'
+      />
     </form>
   );
 };
